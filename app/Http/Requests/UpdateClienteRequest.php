@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreClienteRequest extends FormRequest
+class UpdateClienteRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +24,10 @@ class StoreClienteRequest extends FormRequest
     public function rules()
     {
         return [
-            'cnpj'         => 'required|max:14|cnpj|unique:clientes,cnpj',
+            'cnpj'         => 'required|max:14|cnpj|unique:clientes,cnpj,' . $this->cliente->id,
             'razao_social' => 'required|max:255',
             'nome'         => 'required|max:255',
-            'telefone'     => 'required|max:14|celular_com_ddd|unique:clientes,telefone',
+            'telefone'     => 'required|max:14|celular_com_ddd|unique:clientes,telefone,' . $this->cliente->id,
         ];
     }
 

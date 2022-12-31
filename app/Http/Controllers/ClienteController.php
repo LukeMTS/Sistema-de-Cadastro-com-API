@@ -3,13 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreClienteRequest;
+use App\Http\Requests\UpdateClienteRequest;
 use App\Http\Resources\ClienteCollection;
 use App\Http\Resources\ClienteResource;
 use App\Models\Cliente;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Throwable;
 
 class ClienteController extends Controller
 {
@@ -23,7 +20,7 @@ class ClienteController extends Controller
         return new ClienteResource($cliente);
     }
 
-    public function update(StoreClienteRequest $request, Cliente $cliente)
+    public function update(UpdateClienteRequest $request, Cliente $cliente)
     {
         $cliente->update($request->validated());
         return response()->json(["Cliente atualizado com sucesso"]);

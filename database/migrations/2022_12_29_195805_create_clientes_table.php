@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('cnpj', 14);
             $table->string('razao_social', 255);
             $table->string('nome', 255);
-            $table->string('telefone', 11);
+            $table->string('telefone', 14);
             $table->timestamps();
         });
     }

@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  laravel-app:
+    image: wyveo/nginx-php-fpm:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/usr/share/nginx
+    networks:
+      - app-network
+  mysql-app:
+    image: mysql:5.7.22
+    command: --innodb-use-native-aio=0
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: teamsoft
+      MYSQL_ROOT_PASSWORD: admin123
+    networks:
+      - app-network
+    volumes:
+      - .docker/dbdata:/var/lib/mysql
+
+networks:
+  app-network:
+    driver: bridge
