@@ -27,3 +27,8 @@ Instruções de como criar o container:
     
 Agora a API já está pronta para uso. A documentação no Postman pode auxiliar com
 as rotas e parâmetros.
+
+Caso ocorra um erro 500, dentro do container em /usr/share/nginx, execute: 
+    ln -s public html
+
+Pois assim criará um link entre a pasta public e a html.
